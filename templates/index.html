@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>🎬 사용자 ID 입력</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin: 0;
+            padding: 50px 20px;
+        }
+        h1 {
+            color: #333;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        form {
+            background: #fff;
+            display: inline-block;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 18px;
+            color: #333;
+            margin-right: 10px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            width: 180px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .emoji {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 영화 추천 시스템 🍿</h1>
+        <p>서비스 이용을 위해 사용자 ID를 입력해주세요.</p>
+
+        <!-- 사용자 ID 입력 폼 -->
+        <form action="/" method="post">
+            <div class="input-group">
+                <label for="userId">사용자 ID:</label>
+                <input type="text" id="userId" name="userId" required placeholder="예: 123"> {# <-- name="userId" (U, I 대문자) #}
+            </div>
+            <button type="submit">다음 단계</button>
+        </form>
+        <!-- // 사용자 ID 입력 폼 -->
+
+        {% if error %} {# Flask에서 error 변수를 템플릿에 전달했을 경우 표시 #}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
